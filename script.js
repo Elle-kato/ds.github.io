@@ -7,7 +7,7 @@ const designSystems = [
         title: "Neon Cyberpunk UI",
         tags: ["Cyberpunk", "Dark", "Neon"],
         theme: "theme-cyberpunk", // style.cssで定義したクラス名
-        image: "https://placehold.co/600x400/1a1a1a/00ff9d?text=Cyberpunk", // 自分の画像パスに変更 (例: 'images/cyber.jpg')
+        image: "Retro Modern Revival.png", // 自分の画像パスに変更 (例: 'images/cyber.jpg')
         description: "未来的なネオンカラーとグリッチノイズを取り入れたUIデザインシステム。",
         prompt: "Futuristic UI design system, neon green and purple color palette, dark background, glitch effect, high detailed, 4k --v 6.0"
     },
