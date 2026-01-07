@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro Modern Revival - Design System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-retro-modern"> <div class="detail-wrapper">
+        <a href="index.html" class="back-link">← Back to Gallery</a>
+
+        <header class="ds-header">
+            <p class="archetype">Archetype: The Sophisticated Rebel</p>
+            <h1>RETRO MODERN REVIVAL</h1>
+            <p class="concept">Analog Soul, Digital Body. 数学的純粋さと温かみの融合。</p>
+        </header>
+
+        <section class="ds-visual">
+            <img src="Retro Modern Revival.png" alt="Main Visual">
+        </section>
+
+        <section class="ds-section">
+            <h2>01. Strategy</h2>
+            <div class="grid-2">
+                <div class="spec-card">
+                    <h3>Target Audience</h3>
+                    <p><strong>クリエイティブ・クラシスト</strong><br>20代後半〜40代。歴史的文脈とモダンデザインを愛好する層。</p>
+                </div>
+                <div class="spec-card">
+                    <h3>Values</h3>
+                    <p>本物志向、静かな主張、ミッドセンチュリーの楽観主義。</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="ds-section">
+            <h2>02. Color System</h2>
+            <div class="color-palette">
+                <div class="color-swatch" style="background: #D65A31; color: #fff;">
+                    <span class="color-name">Burnt Orange</span>
+                    <span class="color-hex">#D65A31</span>
+                    <span class="color-role">Primary / Accent</span>
+                </div>
+                <div class="color-swatch" style="background: #F4F1EA; color: #333; border:1px solid #ddd;">
+                    <span class="color-name">Eggshell</span>
+                    <span class="color-hex">#F4F1EA</span>
+                    <span class="color-role">Background</span>
+                </div>
+                <div class="color-swatch" style="background: #2B2B2B; color: #fff;">
+                    <span class="color-name">Charcoal</span>
+                    <span class="color-hex">#2B2B2B</span>
+                    <span class="color-role">Text / Hover</span>
+                </div>
+                <div class="color-swatch" style="background: #4A6C6F; color: #fff;">
+                    <span class="color-name">Deep Teal</span>
+                    <span class="color-hex">#4A6C6F</span>
+                    <span class="color-role">Success</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="ds-section">
+            <h2>03. Typography</h2>
+            <div class="typo-spec">
+                <div class="typo-row font-display">
+                    <span class="typo-label">Display (Futura PT)</span>
+                    <p class="typo-sample">RETRO MODERN REVIVAL</p>
+                    <span class="typo-meta">Bold / Tracking +150 / LH 1.1</span>
+                </div>
+                <div class="typo-row font-body">
+                    <span class="typo-label">Body (Bodoni)</span>
+                    <p class="typo-sample">A rhythmic classic page composition, evoking a sense of calm elegance through generous line spacing.</p>
+                    <span class="typo-meta">Regular / LH 1.6</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="ds-section">
+            <h2>04. UI Components</h2>
+            <div class="ui-showroom">
+                <div class="ui-item">
+                    <label>Primary Button</label>
+                    <button class="demo-btn">LEARN MORE</button>
+                    <p class="ui-note">Sharp corners (0px) or Extreme Round (24px+)</p>
+                </div>
+                <div class="ui-item">
+                    <label>Input Field</label>
+                    <input type="text" class="demo-input" placeholder="Your Email Address">
+                    <p class="ui-note">Bottom border only. Active state: Burnt Orange.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="ds-section prompt-section">
+            <h2>Generation Prompt</h2>
+            <div class="prompt-box">
+                <code id="prompt-text">High-end editorial fashion photography, 16:9 aspect ratio, mid-century modern aesthetic, a model with sharp features and geometric bob hair, wearing structured velvet tailoring in burnt orange and deep teal, standing in a minimalist concrete architectural space with a single vintage wooden chair, harsh sunlight casting deep cinematic shadows, film grain texture, cream-toned highlights, nostalgic yet sophisticated vibe, shot on 35mm lens --ar 16:9 --v 6.0 --style raw</code>
+                <button class="btn-copy" onclick="copyPrompt()">COPY</button>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        function copyPrompt() {
+            const text = document.getElementById('prompt-text').innerText;
+            navigator.clipboard.writeText(text).then(() => alert('Copied!'));
+        }
+    </script>
+</body>
+</html>
