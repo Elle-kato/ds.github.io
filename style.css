@@ -4,7 +4,8 @@
     --text-color: #333;
     --card-bg: #fff;
     --primary-color: #3b82f6;
-    --accent-color: #ef4444; /* お気に入り用 */
+    --accent-color: #ef4444; 
+    --shadow-style: 0 4px 15px rgba(0,0,0,0.05); /* デフォルトの影 */
 }
 
 body {
@@ -16,12 +17,12 @@ body {
     transition: background-color 0.5s, color 0.5s;
 }
 
-/* ヘッダーと検索エリア */
 header {
     padding: 2rem;
     text-align: center;
-    background: #fff;
+    background: var(--card-bg); /* ヘッダーも変数に対応 */
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
 .controls {
@@ -35,40 +36,42 @@ header {
 
 input, select {
     padding: 10px;
-    border: 1px solid #ddd;
+    border: 2px solid #ddd; /* ボーダーを少し太く */
     border-radius: 8px;
     font-size: 1rem;
+    background: var(--card-bg);
+    color: var(--text-color);
 }
 
 /* グリッドレイアウト */
 .gallery-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 2rem;
     max-width: 1200px;
     margin: 2rem auto;
     padding: 0 1rem;
 }
 
-/* アイテムカード */
+/* カード共通設定 */
 .card {
     background: var(--card-bg);
     border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    box-shadow: var(--shadow-style);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
     cursor: pointer;
+    border: 1px solid rgba(0,0,0,0.05);
 }
 
 .card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    transform: translateY(-4px);
 }
 
 .card-img {
     width: 100%;
-    height: 200px;
+    height: 220px;
     object-fit: cover;
 }
 
@@ -96,18 +99,18 @@ input, select {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
 }
 
 .btn-copy {
     background: var(--primary-color);
-    color: white;
+    color: #fff; /* テキスト色は白固定（デフォルト） */
     border: none;
     padding: 8px 16px;
     border-radius: 6px;
     cursor: pointer;
     font-size: 0.9rem;
-    transition: opacity 0.2s;
+    transition: all 0.2s;
 }
 
 .btn-copy:hover {
@@ -127,54 +130,129 @@ input, select {
     color: var(--accent-color);
 }
 
-/* --- 詳細ページ用のテーマ設定 --- */
-/* ダーク・サイバーパンク風 */
-body.theme-Retro Modern Revival {
-    --bg-color: #0f172a;
-    --text-color: #e2e8f0;
-    --card-bg: #1e293b;
-    font-family: 'Courier New', monospace;
-}
-body.theme-Retro Modern Revival .detail-container {
-    border: 2px solid #00ff9d;
-    box-shadow: 0 0 20px rgba(0, 255, 157, 0.2);
+
+/* =========================================
+   ここからテーマ別の設定
+   ========================================= */
+
+/* --- 【NEW】Retro Modern Revival Theme --- */
+body.theme-retro-modern {
+    /* Color System */
+    --bg-color: #F4F1EA;      /* Eggshell Finish */
+    --text-color: #2B2B2B;    /* Dark Charcoal */
+    --card-bg: #FFFFFF;
+    --primary-color: #D65A31; /* Burnt Orange */
+    --accent-color: #B22222;  /* Deep Red for error/heart */
+    --secondary-accent: #4A6C6F; /* Teal */
+    
+    /* Typography: Geometric Headings + Serif Body */
+    font-family: 'Bodoni MT', 'Didot', 'Times New Roman', serif;
 }
 
-/* 柔らかいパステル風 */
+/* Retro: 見出しフォント（Futura代替） */
+body.theme-retro-modern h1, 
+body.theme-retro-modern h2, 
+body.theme-retro-modern h3, 
+body.theme-retro-modern .btn-copy,
+body.theme-retro-modern .tag {
+    font-family: 'Futura', 'Trebuchet MS', Arial, sans-serif;
+    letter-spacing: 0.05em;
+    font-weight: 700;
+}
+
+/* Retro: カードデザイン（UI Physics: Offset Shadow） */
+body.theme-retro-modern .card {
+    border-radius: 0px; /* Sharp corners */
+    border: 2px solid #2B2B2B;
+    box-shadow: 6px 6px 0px #2B2B2B; /* Hard offset shadow */
+}
+
+body.theme-retro-modern .card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 8px 8px 0px #D65A31; /* ホバー時に影がオレンジに */
+}
+
+body.theme-retro-modern .tag {
+    background: transparent;
+    border: 1px solid #2B2B2B;
+    color: #2B2B2B;
+    border-radius: 0;
+}
+
+body.theme-retro-modern .btn-copy {
+    border-radius: 0px;
+    background: var(--primary-color);
+    color: #F4F1EA;
+    box-shadow: 3px 3px 0px #2B2B2B;
+}
+
+body.theme-retro-modern .btn-copy:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 4px 4px 0px #2B2B2B;
+    opacity: 1;
+    background: #2B2B2B;
+}
+
+/* Retro: 詳細ページ */
+body.theme-retro-modern .detail-container {
+    border: 3px solid #2B2B2B;
+    box-shadow: 12px 12px 0px rgba(214, 90, 49, 0.3); /* Burnt Orangeの薄い影 */
+    border-radius: 0;
+    background-image: linear-gradient(#2B2B2B 1px, transparent 1px), linear-gradient(90deg, #2B2B2B 1px, transparent 1px);
+    background-size: 100% 1px, 1px 100%; /* グリッド線は画像などを使わないと難しいので今回はボーダーのみで表現 */
+    background: #fff;
+}
+
+body.theme-retro-modern .prompt-box {
+    background: #F4F1EA;
+    border-left: 4px solid var(--primary-color);
+    font-family: 'Courier New', monospace;
+    color: #4A6C6F; /* Semantic Success color for code */
+}
+
+/* --- その他のテーマ --- */
+
+/* Pastel Theme */
 body.theme-pastel {
     --bg-color: #fdf2f8;
     --text-color: #831843;
+    --primary-color: #db2777;
     font-family: 'Georgia', serif;
 }
 
-/* ミニマル・モノクロ風 */
+/* Minimal Theme */
 body.theme-minimal {
     --bg-color: #ffffff;
     --text-color: #000000;
+    --card-bg: #f8f8f8;
+    --primary-color: #000;
     font-family: sans-serif;
 }
 
-/* 詳細ページのレイアウト */
+
+/* 詳細ページレイアウト共通 */
 .detail-container {
     max-width: 800px;
     margin: 4rem auto;
-    padding: 2rem;
-    background: var(--card-bg); /* テーマ変数を使用 */
+    padding: 3rem;
+    background: var(--card-bg);
     border-radius: 12px;
 }
 
 .detail-img {
     width: 100%;
-    border-radius: 8px;
+    border-radius: 4px;
     margin-bottom: 2rem;
+    border: 1px solid rgba(0,0,0,0.1);
 }
 
 .prompt-box {
     background: rgba(0,0,0,0.05);
-    padding: 1rem;
-    border-radius: 8px;
+    padding: 1.5rem;
+    border-radius: 4px;
     position: relative;
-    margin-top: 1rem;
+    margin-top: 2rem;
+    line-height: 1.6;
 }
 
 .back-link {
@@ -183,4 +261,5 @@ body.theme-minimal {
     text-decoration: none;
     color: var(--text-color);
     font-weight: bold;
+    border-bottom: 1px solid currentColor;
 }
