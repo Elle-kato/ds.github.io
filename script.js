@@ -7,7 +7,7 @@ const designSystems = [
         title: "Retro Modern Revival",
         tags: ["Retro", "Geometric", "Bold"],
         theme: "theme-retro-modern",
-        image: "https://placehold.co/800x450/F4F1EA/D65A31?text=Retro+Modern", 
+        image: 'Retro Modern Revival.png', 
         description: "アナログの温かみとデジタルな幾何学を融合させた「洗練された反逆者」。焦がし橙（Burnt Orange）の大胆なアクセントと、数学的に純粋な形状が特徴。",
         prompt: "High-end editorial fashion photography, 16:9 aspect ratio, mid-century modern aesthetic, a model with sharp features and geometric bob hair, wearing structured velvet tailoring in burnt orange and deep teal, standing in a minimalist concrete architectural space with a single vintage wooden chair, harsh sunlight casting deep cinematic shadows, film grain texture, cream-toned highlights, nostalgic yet sophisticated vibe, shot on 35mm lens --ar 16:9 --v 6.0 --style raw"
     },
@@ -18,7 +18,7 @@ const designSystems = [
         tags: ["Goth", "Glitch", "Chemical"],
         theme: "theme-dark-sugar", 
         // 自分の画像パスに変更 (例: 'images/dark_sugar_cult.png')
-        image: "https://placehold.co/600x800/110F12/FF55A3?text=DARK+SUGAR", 
+        image: 'DARK_SUGAR_CULT.png', 
         description: "漆黒の深淵とケミカルな発光色が織りなす「反逆的なゴシック・エンジェル」。ロココの装飾性とデジタルのバグ（Glitch）を等価に扱う、退廃的かつ中毒性のある美学。",
         prompt: "High-flash editorial photography, a living doll model with pale skin and rabbit-eye makeup, wearing black PVC harness over pink lace ruffles, Harajuku Noir style, gritty urban concrete background, glitch art aesthetic, distorted RGB shifting, decadent atmosphere, deep blacks and neon chemical pink, 9:16, --ar 9:16 --v 6.0 --style raw"
     },
