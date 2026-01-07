@@ -5,7 +5,7 @@
     --card-bg: #fff;
     --primary-color: #3b82f6;
     --accent-color: #ef4444; 
-    --shadow-style: 0 4px 15px rgba(0,0,0,0.05); /* デフォルトの影 */
+    --shadow-style: 0 4px 15px rgba(0,0,0,0.05);
 }
 
 body {
@@ -20,7 +20,7 @@ body {
 header {
     padding: 2rem;
     text-align: center;
-    background: var(--card-bg); /* ヘッダーも変数に対応 */
+    background: var(--card-bg);
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     border-bottom: 1px solid rgba(0,0,0,0.1);
 }
@@ -36,7 +36,7 @@ header {
 
 input, select {
     padding: 10px;
-    border: 2px solid #ddd; /* ボーダーを少し太く */
+    border: 2px solid #ddd;
     border-radius: 8px;
     font-size: 1rem;
     background: var(--card-bg);
@@ -104,7 +104,7 @@ input, select {
 
 .btn-copy {
     background: var(--primary-color);
-    color: #fff; /* テキスト色は白固定（デフォルト） */
+    color: #fff;
     border: none;
     padding: 8px 16px;
     border-radius: 6px;
@@ -135,21 +135,15 @@ input, select {
    ここからテーマ別の設定
    ========================================= */
 
-/* --- 【NEW】Retro Modern Revival Theme --- */
+/* --- Retro Modern Revival Theme --- */
 body.theme-retro-modern {
-    /* Color System */
-    --bg-color: #F4F1EA;      /* Eggshell Finish */
-    --text-color: #2B2B2B;    /* Dark Charcoal */
+    --bg-color: #F4F1EA;
+    --text-color: #2B2B2B;
     --card-bg: #FFFFFF;
-    --primary-color: #D65A31; /* Burnt Orange */
-    --accent-color: #B22222;  /* Deep Red for error/heart */
-    --secondary-accent: #4A6C6F; /* Teal */
-    
-    /* Typography: Geometric Headings + Serif Body */
+    --primary-color: #D65A31;
+    --accent-color: #B22222;
     font-family: 'Bodoni MT', 'Didot', 'Times New Roman', serif;
 }
-
-/* Retro: 見出しフォント（Futura代替） */
 body.theme-retro-modern h1, 
 body.theme-retro-modern h2, 
 body.theme-retro-modern h3, 
@@ -159,68 +153,147 @@ body.theme-retro-modern .tag {
     letter-spacing: 0.05em;
     font-weight: 700;
 }
-
-/* Retro: カードデザイン（UI Physics: Offset Shadow） */
 body.theme-retro-modern .card {
-    border-radius: 0px; /* Sharp corners */
+    border-radius: 0px;
     border: 2px solid #2B2B2B;
-    box-shadow: 6px 6px 0px #2B2B2B; /* Hard offset shadow */
+    box-shadow: 6px 6px 0px #2B2B2B;
 }
-
 body.theme-retro-modern .card:hover {
     transform: translate(-2px, -2px);
-    box-shadow: 8px 8px 0px #D65A31; /* ホバー時に影がオレンジに */
+    box-shadow: 8px 8px 0px #D65A31;
 }
-
 body.theme-retro-modern .tag {
     background: transparent;
     border: 1px solid #2B2B2B;
     color: #2B2B2B;
     border-radius: 0;
 }
-
 body.theme-retro-modern .btn-copy {
     border-radius: 0px;
     background: var(--primary-color);
     color: #F4F1EA;
     box-shadow: 3px 3px 0px #2B2B2B;
 }
-
 body.theme-retro-modern .btn-copy:hover {
     transform: translate(-1px, -1px);
     box-shadow: 4px 4px 0px #2B2B2B;
     opacity: 1;
     background: #2B2B2B;
 }
-
-/* Retro: 詳細ページ */
 body.theme-retro-modern .detail-container {
     border: 3px solid #2B2B2B;
-    box-shadow: 12px 12px 0px rgba(214, 90, 49, 0.3); /* Burnt Orangeの薄い影 */
+    box-shadow: 12px 12px 0px rgba(214, 90, 49, 0.3);
     border-radius: 0;
-    background-image: linear-gradient(#2B2B2B 1px, transparent 1px), linear-gradient(90deg, #2B2B2B 1px, transparent 1px);
-    background-size: 100% 1px, 1px 100%; /* グリッド線は画像などを使わないと難しいので今回はボーダーのみで表現 */
     background: #fff;
 }
-
 body.theme-retro-modern .prompt-box {
     background: #F4F1EA;
     border-left: 4px solid var(--primary-color);
     font-family: 'Courier New', monospace;
-    color: #4A6C6F; /* Semantic Success color for code */
+    color: #4A6C6F;
 }
 
-/* --- その他のテーマ --- */
+/* --- 【NEW】DARK SUGAR CULT Theme --- */
+body.theme-dark-sugar {
+    /* Color System */
+    --bg-color: #110F12;      /* Matte Black */
+    --text-color: #F4F1EA;    /* High Contrast White */
+    --card-bg: #1D1B20;       /* Dark Surface */
+    --primary-color: #FF55A3; /* Chemical Poison Pink */
+    --accent-color: #00F0FF;  /* Cyan Glitch */
+    --secondary-accent: #E6FF00; /* Warning Yellow */
 
-/* Pastel Theme */
-body.theme-pastel {
-    --bg-color: #fdf2f8;
-    --text-color: #831843;
-    --primary-color: #db2777;
-    font-family: 'Georgia', serif;
+    /* Typography: Monospace for Digital/Cold vibe */
+    font-family: 'Roboto Mono', 'Courier New', monospace;
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjMTEwZjEyIi8+CjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiMxZDFiMjAiLz4KPC9zdmc+'); /* 微細なノイズ風パターン */
 }
 
-/* Minimal Theme */
+/* Dark Sugar: 見出し */
+body.theme-dark-sugar h1,
+body.theme-dark-sugar h2,
+body.theme-dark-sugar h3 {
+    font-weight: 800;
+    letter-spacing: -0.05em;
+    text-shadow: 2px 2px 0px var(--primary-color), -2px -2px 0px var(--accent-color); /* Glitch effect */
+}
+
+/* Dark Sugar: カード (Sharp & Offset Color Shadow) */
+body.theme-dark-sugar .card {
+    border-radius: 0px;
+    border: 1px solid var(--primary-color);
+    background: #000;
+    box-shadow: 4px 4px 0px var(--primary-color); /* Level 1 shadow */
+}
+
+body.theme-dark-sugar .card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: -4px -4px 0px var(--accent-color), 4px 4px 0px var(--primary-color); /* Level 2 glitch shadow */
+    border-color: var(--accent-color);
+}
+
+/* Dark Sugar: 画像のピクセル化エフェクト (CSS filter) */
+body.theme-dark-sugar .card-img {
+    filter: contrast(1.2) grayscale(0.2);
+    transition: filter 0.1s steps(4);
+}
+body.theme-dark-sugar .card:hover .card-img {
+    filter: contrast(1.5) hue-rotate(90deg); /* 簡易的なグリッチ表現 */
+}
+
+/* Dark Sugar: タグ */
+body.theme-dark-sugar .tag {
+    background: transparent;
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+    border-radius: 0px;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+}
+
+/* Dark Sugar: ボタン (Ghost -> Solid Invert) */
+body.theme-dark-sugar .btn-copy {
+    border-radius: 0px;
+    background: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    box-shadow: none;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+body.theme-dark-sugar .btn-copy:hover {
+    background: var(--primary-color);
+    color: #000;
+    box-shadow: 0 0 10px var(--primary-color); /* Glow effect */
+}
+
+/* Dark Sugar: 詳細ページ */
+body.theme-dark-sugar .detail-container {
+    background: rgba(29, 27, 32, 0.95);
+    border: 1px solid var(--primary-color);
+    box-shadow: 0 0 20px rgba(255, 85, 163, 0.3);
+    border-radius: 0;
+}
+
+body.theme-dark-sugar .prompt-box {
+    background: #000;
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+    font-family: 'Courier New', monospace;
+    position: relative;
+}
+/* プロンプトボックスに「TERMINAL」っぽい装飾 */
+body.theme-dark-sugar .prompt-box::before {
+    content: ">> SYSTEM_LOG:";
+    display: block;
+    font-size: 0.7rem;
+    opacity: 0.7;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+
+/* --- Minimal Theme --- */
 body.theme-minimal {
     --bg-color: #ffffff;
     --text-color: #000000;
@@ -253,6 +326,7 @@ body.theme-minimal {
     position: relative;
     margin-top: 2rem;
     line-height: 1.6;
+    word-break: break-all;
 }
 
 .back-link {
