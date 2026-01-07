@@ -6,20 +6,21 @@ const designSystems = [
         id: "ds_retro_01",
         title: "Retro Modern Revival",
         tags: ["Retro", "Geometric", "Bold"],
-        theme: "theme-retro-modern", // style.cssで定義したクラス名
-        // 画像はプレースホルダーにしていますが、'images/filename.png' に書き換えてください
-        image: "Retro Modern Revival.png", 
+        theme: "theme-retro-modern",
+        image: "https://placehold.co/800x450/F4F1EA/D65A31?text=Retro+Modern", 
         description: "アナログの温かみとデジタルな幾何学を融合させた「洗練された反逆者」。焦がし橙（Burnt Orange）の大胆なアクセントと、数学的に純粋な形状が特徴。",
         prompt: "High-end editorial fashion photography, 16:9 aspect ratio, mid-century modern aesthetic, a model with sharp features and geometric bob hair, wearing structured velvet tailoring in burnt orange and deep teal, standing in a minimalist concrete architectural space with a single vintage wooden chair, harsh sunlight casting deep cinematic shadows, film grain texture, cream-toned highlights, nostalgic yet sophisticated vibe, shot on 35mm lens --ar 16:9 --v 6.0 --style raw"
     },
     {
-        id: "ds_002",
-        title: "Organic Pastel Life",
-        tags: ["Nature", "Pastel", "Soft"],
-        theme: "theme-pastel",
-        image: "https://placehold.co/600x400/fff0f5/ff69b4?text=Pastel",
-        description: "自然由来の柔らかい曲線とパステルカラーを使用した、優しい印象のデザイン。",
-        prompt: "Organic shape UI elements, pastel pink and beige, soft lighting, minimalism, natural vibes, web design --v 6.0"
+        // 【NEW】 DARK_SUGAR_CULT (Pastelを置き換え)
+        id: "ds_dark_01",
+        title: "DARK_SUGAR_CULT",
+        tags: ["Goth", "Glitch", "Chemical"],
+        theme: "theme-dark-sugar", 
+        // 自分の画像パスに変更 (例: 'images/dark_sugar_cult.png')
+        image: "https://placehold.co/600x800/110F12/FF55A3?text=DARK+SUGAR", 
+        description: "漆黒の深淵とケミカルな発光色が織りなす「反逆的なゴシック・エンジェル」。ロココの装飾性とデジタルのバグ（Glitch）を等価に扱う、退廃的かつ中毒性のある美学。",
+        prompt: "High-flash editorial photography, a living doll model with pale skin and rabbit-eye makeup, wearing black PVC harness over pink lace ruffles, Harajuku Noir style, gritty urban concrete background, glitch art aesthetic, distorted RGB shifting, decadent atmosphere, deep blacks and neon chemical pink, 9:16, --ar 9:16 --v 6.0 --style raw"
     },
     {
         id: "ds_003",
@@ -81,7 +82,7 @@ if (document.getElementById('gallery-grid')) {
                         ${item.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
                     </div>
                     <div class="card-actions">
-                        <button class="btn-copy" onclick="copyPrompt(event, '${item.prompt.replace(/'/g, "\\'")}')">Copy Prompt</button>
+                        <button class="btn-copy" onclick="copyPrompt(event, '${item.prompt.replace(/'/g, "\\'")}')">COPY</button>
                         <button class="btn-fav ${isFav ? 'active' : ''}" onclick="toggleFav(event, '${item.id}', this)">
                             ♥
                         </button>
@@ -117,7 +118,7 @@ if (document.getElementById('detail-content')) {
             <h3 style="margin-top:2rem;">Generation Prompt</h3>
             <div class="prompt-box">
                 <code>${item.prompt}</code>
-                <button class="btn-copy" style="position:absolute; top:10px; right:10px;" onclick="copyPrompt(event, '${item.prompt.replace(/'/g, "\\'")}')">Copy</button>
+                <button class="btn-copy" style="position:absolute; top:10px; right:10px;" onclick="copyPrompt(event, '${item.prompt.replace(/'/g, "\\'")}')">COPY</button>
             </div>
             
             <div class="tags" style="margin-top:2rem;">
