@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DARK_SUGAR_CULT - Design System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-dark-sugar">
+
+    <div class="detail-wrapper">
+        <a href="index.html" class="back-link">&lt;&lt; ABORT_TO_GALLERY</a>
+
+        <header class="ds-header">
+            <div class="glitch-text" data-text="DARK_SUGAR_CULT">DARK_SUGAR_CULT</div>
+            <p class="archetype">Archetype: The Gothic Rebel Angel</p>
+            <p class="concept">Toxic Contrast / Glitch Elegance / Controlled Chaos</p>
+        </header>
+
+        <section class="ds-visual">
+             <img src="DARK_SUGAR_CULT.png" alt="Main Visual">
+        </section>
+
+        <section class="ds-section">
+            <h2>// SYSTEM_STRATEGY</h2>
+            <ul class="terminal-list">
+                <li>&gt; Target: Gen-Z Neo-Goth / Harajuku Subculture</li>
+                <li>&gt; Price: Premium Streetwear</li>
+                <li>&gt; Values: 退廃的な可愛さへの執着</li>
+            </ul>
+        </section>
+
+        <section class="ds-section">
+            <h2>// COLOR_MATRIX</h2>
+            <div class="color-palette">
+                <div class="color-swatch" style="background: #FF55A3; color: #000;">
+                    <span class="color-name">Poison Pink</span>
+                    <span class="color-hex">#FF55A3</span>
+                </div>
+                <div class="color-swatch" style="background: #110F12; color: #FF55A3; border: 1px solid #FF55A3;">
+                    <span class="color-name">Matte Black</span>
+                    <span class="color-hex">#110F12</span>
+                </div>
+                <div class="color-swatch" style="background: #00F0FF; color: #000;">
+                    <span class="color-name">Cyan Glitch</span>
+                    <span class="color-hex">#00F0FF</span>
+                </div>
+                <div class="color-swatch" style="background: #E6FF00; color: #000;">
+                    <span class="color-name">Warning</span>
+                    <span class="color-hex">#E6FF00</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="ds-section">
+            <h2>// COMPONENT_LIB</h2>
+            <div class="ui-showroom">
+                <div class="ui-item">
+                    <label>Action Button</label>
+                    <button class="demo-btn">EXECUTE</button>
+                    <p class="ui-note">Border only. Hover: Invert + RGB Shift.</p>
+                </div>
+                <div class="ui-item">
+                    <label>Input Stream</label>
+                    <input type="text" class="demo-input" placeholder="ENTER_CODE_">
+                </div>
+            </div>
+        </section>
+
+        <section class="ds-section prompt-section">
+            <h2>// PROMPT_LOG</h2>
+            <div class="prompt-box">
+                <code id="prompt-text">High-flash editorial photography, a living doll model with pale skin and rabbit-eye makeup, wearing black PVC harness over pink lace ruffles, Harajuku Noir style, gritty urban concrete background, glitch art aesthetic, distorted RGB shifting, decadent atmosphere, deep blacks and neon chemical pink, 9:16, --ar 9:16 --v 6.0 --style raw</code>
+                <button class="btn-copy" onclick="copyPrompt()">COPY</button>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        function copyPrompt() {
+            const text = document.getElementById('prompt-text').innerText;
+            navigator.clipboard.writeText(text).then(() => alert('Code Copied.'));
+        }
+    </script>
+</body>
+</html>
