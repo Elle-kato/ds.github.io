@@ -129,13 +129,13 @@ input, select {
 
 /* --- 詳細ページ用のテーマ設定 --- */
 /* ダーク・サイバーパンク風 */
-body.theme-cyberpunk {
+body.theme-Retro Modern Revival {
     --bg-color: #0f172a;
     --text-color: #e2e8f0;
     --card-bg: #1e293b;
     font-family: 'Courier New', monospace;
 }
-body.theme-cyberpunk .detail-container {
+body.theme-Retro Modern Revival .detail-container {
     border: 2px solid #00ff9d;
     box-shadow: 0 0 20px rgba(0, 255, 157, 0.2);
 }
