@@ -1,339 +1,215 @@
-/* style.css */
-:root {
-    --bg-color: #f4f4f9;
-    --text-color: #333;
-    --card-bg: #fff;
-    --primary-color: #3b82f6;
-    --accent-color: #ef4444; 
-    --shadow-style: 0 4px 15px rgba(0,0,0,0.05);
-}
-
-body {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    margin: 0;
-    padding: 0;
-    transition: background-color 0.5s, color 0.5s;
-}
-
-header {
-    padding: 2rem;
-    text-align: center;
-    background: var(--card-bg);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    border-bottom: 1px solid rgba(0,0,0,0.1);
-}
-
-.controls {
-    max-width: 1200px;
-    margin: 1rem auto;
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-input, select {
-    padding: 10px;
-    border: 2px solid #ddd;
-    border-radius: 8px;
-    font-size: 1rem;
-    background: var(--card-bg);
-    color: var(--text-color);
-}
-
-/* グリッドレイアウト */
-.gallery-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 0 1rem;
-}
-
-/* カード共通設定 */
-.card {
-    background: var(--card-bg);
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: var(--shadow-style);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-    cursor: pointer;
-    border: 1px solid rgba(0,0,0,0.05);
-}
-
-.card:hover {
-    transform: translateY(-4px);
-}
-
-.card-img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-}
-
-.card-body {
-    padding: 1.5rem;
-}
-
-.tags {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    margin-top: 10px;
-}
-
-.tag {
-    font-size: 0.75rem;
-    background: #eef2ff;
-    color: #4f46e5;
-    padding: 4px 8px;
-    border-radius: 4px;
-}
-
-/* ボタン類 */
-.card-actions {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 1.5rem;
-}
-
-.btn-copy {
-    background: var(--primary-color);
-    color: #fff;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    transition: all 0.2s;
-}
-
-.btn-copy:hover {
-    opacity: 0.9;
-}
-
-.btn-fav {
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    color: #ccc;
-    cursor: pointer;
-    transition: color 0.2s;
-}
-
-.btn-fav.active {
-    color: var(--accent-color);
-}
+/* --- 既存のコード（index.html用）はそのまま維持してください --- */
+/* ... (省略) ... */
 
 
 /* =========================================
-   ここからテーマ別の設定
+   詳細ページ (Spec Sheet) 用の共通スタイル
    ========================================= */
 
-/* --- Retro Modern Revival Theme --- */
-body.theme-retro-modern {
-    --bg-color: #F4F1EA;
-    --text-color: #2B2B2B;
-    --card-bg: #FFFFFF;
-    --primary-color: #D65A31;
-    --accent-color: #B22222;
-    font-family: 'Bodoni MT', 'Didot', 'Times New Roman', serif;
-}
-body.theme-retro-modern h1, 
-body.theme-retro-modern h2, 
-body.theme-retro-modern h3, 
-body.theme-retro-modern .btn-copy,
-body.theme-retro-modern .tag {
-    font-family: 'Futura', 'Trebuchet MS', Arial, sans-serif;
-    letter-spacing: 0.05em;
-    font-weight: 700;
-}
-body.theme-retro-modern .card {
-    border-radius: 0px;
-    border: 2px solid #2B2B2B;
-    box-shadow: 6px 6px 0px #2B2B2B;
-}
-body.theme-retro-modern .card:hover {
-    transform: translate(-2px, -2px);
-    box-shadow: 8px 8px 0px #D65A31;
-}
-body.theme-retro-modern .tag {
-    background: transparent;
-    border: 1px solid #2B2B2B;
-    color: #2B2B2B;
-    border-radius: 0;
-}
-body.theme-retro-modern .btn-copy {
-    border-radius: 0px;
-    background: var(--primary-color);
-    color: #F4F1EA;
-    box-shadow: 3px 3px 0px #2B2B2B;
-}
-body.theme-retro-modern .btn-copy:hover {
-    transform: translate(-1px, -1px);
-    box-shadow: 4px 4px 0px #2B2B2B;
-    opacity: 1;
-    background: #2B2B2B;
-}
-body.theme-retro-modern .detail-container {
-    border: 3px solid #2B2B2B;
-    box-shadow: 12px 12px 0px rgba(214, 90, 49, 0.3);
-    border-radius: 0;
-    background: #fff;
-}
-body.theme-retro-modern .prompt-box {
-    background: #F4F1EA;
-    border-left: 4px solid var(--primary-color);
-    font-family: 'Courier New', monospace;
-    color: #4A6C6F;
+.detail-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
 }
 
-/* --- 【NEW】DARK SUGAR CULT Theme --- */
-body.theme-dark-sugar {
-    /* Color System */
-    --bg-color: #110F12;      /* Matte Black */
-    --text-color: #F4F1EA;    /* High Contrast White */
-    --card-bg: #1D1B20;       /* Dark Surface */
-    --primary-color: #FF55A3; /* Chemical Poison Pink */
-    --accent-color: #00F0FF;  /* Cyan Glitch */
-    --secondary-accent: #E6FF00; /* Warning Yellow */
-
-    /* Typography: Monospace for Digital/Cold vibe */
-    font-family: 'Roboto Mono', 'Courier New', monospace;
-    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjMTEwZjEyIi8+CjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiMxZDFiMjAiLz4KPC9zdmc+'); /* 微細なノイズ風パターン */
+.ds-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
-/* Dark Sugar: 見出し */
-body.theme-dark-sugar h1,
-body.theme-dark-sugar h2,
-body.theme-dark-sugar h3 {
-    font-weight: 800;
-    letter-spacing: -0.05em;
-    text-shadow: 2px 2px 0px var(--primary-color), -2px -2px 0px var(--accent-color); /* Glitch effect */
-}
-
-/* Dark Sugar: カード (Sharp & Offset Color Shadow) */
-body.theme-dark-sugar .card {
-    border-radius: 0px;
-    border: 1px solid var(--primary-color);
-    background: #000;
-    box-shadow: 4px 4px 0px var(--primary-color); /* Level 1 shadow */
-}
-
-body.theme-dark-sugar .card:hover {
-    transform: translate(-2px, -2px);
-    box-shadow: -4px -4px 0px var(--accent-color), 4px 4px 0px var(--primary-color); /* Level 2 glitch shadow */
-    border-color: var(--accent-color);
-}
-
-/* Dark Sugar: 画像のピクセル化エフェクト (CSS filter) */
-body.theme-dark-sugar .card-img {
-    filter: contrast(1.2) grayscale(0.2);
-    transition: filter 0.1s steps(4);
-}
-body.theme-dark-sugar .card:hover .card-img {
-    filter: contrast(1.5) hue-rotate(90deg); /* 簡易的なグリッチ表現 */
-}
-
-/* Dark Sugar: タグ */
-body.theme-dark-sugar .tag {
-    background: transparent;
-    border: 1px solid var(--accent-color);
-    color: var(--accent-color);
-    border-radius: 0px;
-    font-size: 0.7rem;
+.archetype {
     text-transform: uppercase;
-}
-
-/* Dark Sugar: ボタン (Ghost -> Solid Invert) */
-body.theme-dark-sugar .btn-copy {
-    border-radius: 0px;
-    background: transparent;
-    color: var(--primary-color);
-    border: 1px solid var(--primary-color);
-    box-shadow: none;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-body.theme-dark-sugar .btn-copy:hover {
-    background: var(--primary-color);
-    color: #000;
-    box-shadow: 0 0 10px var(--primary-color); /* Glow effect */
-}
-
-/* Dark Sugar: 詳細ページ */
-body.theme-dark-sugar .detail-container {
-    background: rgba(29, 27, 32, 0.95);
-    border: 1px solid var(--primary-color);
-    box-shadow: 0 0 20px rgba(255, 85, 163, 0.3);
-    border-radius: 0;
-}
-
-body.theme-dark-sugar .prompt-box {
-    background: #000;
-    border: 1px solid var(--accent-color);
-    color: var(--accent-color);
-    font-family: 'Courier New', monospace;
-    position: relative;
-}
-/* プロンプトボックスに「TERMINAL」っぽい装飾 */
-body.theme-dark-sugar .prompt-box::before {
-    content: ">> SYSTEM_LOG:";
-    display: block;
-    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    font-size: 0.8rem;
     opacity: 0.7;
     margin-bottom: 0.5rem;
-    color: var(--primary-color);
 }
 
-
-/* --- Minimal Theme --- */
-body.theme-minimal {
-    --bg-color: #ffffff;
-    --text-color: #000000;
-    --card-bg: #f8f8f8;
-    --primary-color: #000;
-    font-family: sans-serif;
+.concept {
+    font-size: 1.1rem;
+    font-style: italic;
+    opacity: 0.8;
 }
 
+.ds-section {
+    margin-bottom: 4rem;
+}
 
-/* 詳細ページレイアウト共通 */
-.detail-container {
-    max-width: 800px;
-    margin: 4rem auto;
-    padding: 3rem;
+.ds-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--primary-color);
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+/* 2カラムレイアウト */
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+/* カラーパレット */
+.color-palette {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+}
+
+.color-swatch {
+    height: 120px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    border-radius: 4px; /* Default */
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.color-swatch span {
+    display: block;
+}
+
+.color-hex {
+    font-family: monospace;
+    opacity: 0.8;
+}
+
+/* タイポグラフィ見本 */
+.typo-spec {
     background: var(--card-bg);
-    border-radius: 12px;
-}
-
-.detail-img {
-    width: 100%;
-    border-radius: 4px;
-    margin-bottom: 2rem;
+    padding: 2rem;
     border: 1px solid rgba(0,0,0,0.1);
 }
 
-.prompt-box {
-    background: rgba(0,0,0,0.05);
-    padding: 1.5rem;
-    border-radius: 4px;
-    position: relative;
-    margin-top: 2rem;
-    line-height: 1.6;
-    word-break: break-all;
+.typo-row {
+    margin-bottom: 2rem;
+    border-bottom: 1px dashed #ccc;
+    padding-bottom: 1rem;
 }
 
-.back-link {
-    display: inline-block;
-    margin: 2rem;
-    text-decoration: none;
-    color: var(--text-color);
+.typo-label {
+    display: block;
+    font-size: 0.8rem;
+    color: #888;
+    margin-bottom: 0.5rem;
+}
+
+.typo-meta {
+    font-size: 0.8rem;
+    font-family: monospace;
+    color: var(--primary-color);
+}
+
+/* UIコンポーネント展示 */
+.ui-showroom {
+    display: flex;
+    gap: 3rem;
+    background: var(--bg-color); /* 背景色に合わせる */
+    padding: 2rem;
+    border: 1px solid rgba(0,0,0,0.1);
+    flex-wrap: wrap;
+}
+
+.ui-item label {
+    display: block;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+    opacity: 0.7;
+}
+
+.ui-note {
+    font-size: 0.75rem;
+    margin-top: 10px;
+    opacity: 0.6;
+}
+
+/* === テーマごとの上書き設定 (Detail Page Specifics) === */
+
+/* --- Retro Modern Specifics --- */
+.theme-retro-modern .ds-header h1 {
+    font-size: 3rem;
+    font-family: 'Futura', sans-serif;
+    letter-spacing: 0.1em;
+}
+
+.theme-retro-modern .demo-btn {
+    background: var(--primary-color);
+    color: #F4F1EA;
+    border: none;
+    padding: 16px 40px;
+    border-radius: 0px; /* or 24px */
     font-weight: bold;
-    border-bottom: 1px solid currentColor;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+.theme-retro-modern .demo-input {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    padding: 10px;
+    width: 250px;
+    font-family: inherit;
+    outline: none;
+}
+.theme-retro-modern .demo-input:focus {
+    border-color: var(--primary-color);
+}
+
+
+/* --- Dark Sugar Specifics --- */
+.theme-dark-sugar .ds-header {
+    border-bottom: 1px solid var(--primary-color);
+}
+
+.theme-dark-sugar .glitch-text {
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-shadow: 2px 2px #00F0FF;
+}
+
+.theme-dark-sugar .terminal-list {
+    list-style: none;
+    padding: 0;
+    font-family: 'Courier New', monospace;
+}
+.theme-dark-sugar .terminal-list li {
+    margin-bottom: 0.5rem;
+    border-left: 2px solid var(--primary-color);
+    padding-left: 10px;
+}
+
+.theme-dark-sugar .color-swatch {
+    border-radius: 0;
+}
+
+.theme-dark-sugar .demo-btn {
+    background: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    padding: 12px 24px;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.theme-dark-sugar .demo-btn:hover {
+    background: var(--primary-color);
+    color: #000;
+    box-shadow: 3px 3px 0px var(--accent-color);
+}
+
+.theme-dark-sugar .demo-input {
+    background: #000;
+    border: none;
+    border-bottom: 1px solid var(--primary-color);
+    color: var(--accent-color);
+    padding: 10px;
+    font-family: 'Courier New', monospace;
 }
