@@ -1,0 +1,186 @@
+/* style.css */
+:root {
+    --bg-color: #f4f4f9;
+    --text-color: #333;
+    --card-bg: #fff;
+    --primary-color: #3b82f6;
+    --accent-color: #ef4444; /* お気に入り用 */
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+/* ヘッダーと検索エリア */
+header {
+    padding: 2rem;
+    text-align: center;
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.controls {
+    max-width: 1200px;
+    margin: 1rem auto;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+input, select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+/* グリッドレイアウト */
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* アイテムカード */
+.card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.card-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.tag {
+    font-size: 0.75rem;
+    background: #eef2ff;
+    color: #4f46e5;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+/* ボタン類 */
+.card-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.btn-copy {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: opacity 0.2s;
+}
+
+.btn-copy:hover {
+    opacity: 0.9;
+}
+
+.btn-fav {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.btn-fav.active {
+    color: var(--accent-color);
+}
+
+/* --- 詳細ページ用のテーマ設定 --- */
+/* ダーク・サイバーパンク風 */
+body.theme-cyberpunk {
+    --bg-color: #0f172a;
+    --text-color: #e2e8f0;
+    --card-bg: #1e293b;
+    font-family: 'Courier New', monospace;
+}
+body.theme-cyberpunk .detail-container {
+    border: 2px solid #00ff9d;
+    box-shadow: 0 0 20px rgba(0, 255, 157, 0.2);
+}
+
+/* 柔らかいパステル風 */
+body.theme-pastel {
+    --bg-color: #fdf2f8;
+    --text-color: #831843;
+    font-family: 'Georgia', serif;
+}
+
+/* ミニマル・モノクロ風 */
+body.theme-minimal {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    font-family: sans-serif;
+}
+
+/* 詳細ページのレイアウト */
+.detail-container {
+    max-width: 800px;
+    margin: 4rem auto;
+    padding: 2rem;
+    background: var(--card-bg); /* テーマ変数を使用 */
+    border-radius: 12px;
+}
+
+.detail-img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.prompt-box {
+    background: rgba(0,0,0,0.05);
+    padding: 1rem;
+    border-radius: 8px;
+    position: relative;
+    margin-top: 1rem;
+}
+
+.back-link {
+    display: inline-block;
+    margin: 2rem;
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: bold;
+}
