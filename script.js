@@ -1,41 +1,28 @@
 /* script.js */
 
-// 1. デザインシステムのデータリスト
 const designSystems = [
     {
-        id: "ds_retro_01",
+        id: "ds_retro",
         title: "Retro Modern Revival",
+        fileName: "retro.html", // ★ここが飛び先のHTMLファイル名
         tags: ["Retro", "Geometric", "Bold"],
         theme: "theme-retro-modern",
-        image: 'Retro Modern Revival.png', 
-        description: "アナログの温かみとデジタルな幾何学を融合させた「洗練された反逆者」。焦がし橙（Burnt Orange）の大胆なアクセントと、数学的に純粋な形状が特徴。",
-        prompt: "High-end editorial fashion photography, 16:9 aspect ratio, mid-century modern aesthetic, a model with sharp features and geometric bob hair, wearing structured velvet tailoring in burnt orange and deep teal, standing in a minimalist concrete architectural space with a single vintage wooden chair, harsh sunlight casting deep cinematic shadows, film grain texture, cream-toned highlights, nostalgic yet sophisticated vibe, shot on 35mm lens --ar 16:9 --v 6.0 --style raw"
+        image: "Retro Modern Revival.png", 
+        prompt: "High-end editorial fashion photography..." // コピー用
     },
     {
-        // 【NEW】 DARK_SUGAR_CULT (Pastelを置き換え)
-        id: "ds_dark_01",
+        id: "ds_dark",
         title: "DARK_SUGAR_CULT",
+        fileName: "dark_sugar.html", // ★ここが飛び先のHTMLファイル名
         tags: ["Goth", "Glitch", "Chemical"],
-        theme: "theme-dark-sugar", 
-        // 自分の画像パスに変更 (例: 'images/dark_sugar_cult.png')
-        image: 'DARK_SUGAR_CULT.png', 
-        description: "漆黒の深淵とケミカルな発光色が織りなす「反逆的なゴシック・エンジェル」。ロココの装飾性とデジタルのバグ（Glitch）を等価に扱う、退廃的かつ中毒性のある美学。",
-        prompt: "High-flash editorial photography, a living doll model with pale skin and rabbit-eye makeup, wearing black PVC harness over pink lace ruffles, Harajuku Noir style, gritty urban concrete background, glitch art aesthetic, distorted RGB shifting, decadent atmosphere, deep blacks and neon chemical pink, 9:16, --ar 9:16 --v 6.0 --style raw"
-    },
-    {
-        id: "ds_003",
-        title: "Swiss Minimalist",
-        tags: ["Minimal", "Typography", "Clean"],
-        theme: "theme-minimal",
-        image: "https://placehold.co/600x400/ffffff/000000?text=Minimal",
-        description: "スイススタイルに影響を受けた、タイポグラフィ中心の厳格なグリッドシステム。",
-        prompt: "Swiss style graphic design, bold typography, grid system, black and white, minimalist aesthetic, clean lines --ar 16:9"
+        theme: "theme-dark-sugar",
+        image: "DARK_SUGAR_CULT.png",
+        prompt: "High-flash editorial photography..."
     }
+    // 必要に応じて追加
 ];
 
-// --- 以下、ロジック部分は変更ありません ---
-
-// 2. メインページ（index.html）向けの処理
+// メインページ（index.html）向けの処理
 if (document.getElementById('gallery-grid')) {
     const grid = document.getElementById('gallery-grid');
     const searchInput = document.getElementById('search-input');
@@ -59,7 +46,6 @@ if (document.getElementById('gallery-grid')) {
         if (sortSelect.value === 'name') {
             filtered.sort((a, b) => a.title.localeCompare(b.title));
         }
-
         renderGallery(filtered);
     }
 
@@ -69,13 +55,17 @@ if (document.getElementById('gallery-grid')) {
             const isFav = localStorage.getItem(`fav_${item.id}`) === 'true';
             
             const card = document.createElement('div');
-            card.className = 'card';
+            card.className = `card ${item.theme}`; // テーマクラスをカード自体にも付与して雰囲気出し
+            
+            // ★クリックしたら個別のHTMLへ遷移
             card.onclick = (e) => {
-                window.location.href = `detail.html?id=${item.id}`;
+                window.location.href = item.fileName;
             };
 
             card.innerHTML = `
-                <img src="${item.image}" alt="${item.title}" class="card-img">
+                <div class="card-img-wrapper">
+                    <img src="${item.image}" alt="${item.title}" class="card-img">
+                </div>
                 <div class="card-body">
                     <h3>${item.title}</h3>
                     <div class="tags">
@@ -83,9 +73,7 @@ if (document.getElementById('gallery-grid')) {
                     </div>
                     <div class="card-actions">
                         <button class="btn-copy" onclick="copyPrompt(event, '${item.prompt.replace(/'/g, "\\'")}')">COPY</button>
-                        <button class="btn-fav ${isFav ? 'active' : ''}" onclick="toggleFav(event, '${item.id}', this)">
-                            ♥
-                        </button>
+                        <button class="btn-fav ${isFav ? 'active' : ''}" onclick="toggleFav(event, '${item.id}', this)">♥</button>
                     </div>
                 </div>
             `;
@@ -94,52 +82,16 @@ if (document.getElementById('gallery-grid')) {
     }
 }
 
-// 3. 詳細ページ（detail.html）向けの処理
-if (document.getElementById('detail-content')) {
-    const params = new URLSearchParams(window.location.search);
-    const id = params.get('id');
-    const item = designSystems.find(ds => ds.id === id);
-
-    if (item) {
-        document.body.classList.add(item.theme);
-
-        const container = document.getElementById('detail-content');
-        container.innerHTML = `
-            <span style="font-size:0.8rem; text-transform:uppercase; letter-spacing:2px; display:block; margin-bottom:10px; opacity:0.7;">Design System</span>
-            <h1 style="font-size:2.5rem; margin-top:0;">${item.title}</h1>
-            
-            <img src="${item.image}" alt="${item.title}" class="detail-img">
-            
-            <div style="margin: 2rem 0;">
-                <h3 style="margin-bottom:0.5rem;">Concept</h3>
-                <p style="line-height:1.8;">${item.description}</p>
-            </div>
-            
-            <h3 style="margin-top:2rem;">Generation Prompt</h3>
-            <div class="prompt-box">
-                <code>${item.prompt}</code>
-                <button class="btn-copy" style="position:absolute; top:10px; right:10px;" onclick="copyPrompt(event, '${item.prompt.replace(/'/g, "\\'")}')">COPY</button>
-            </div>
-            
-            <div class="tags" style="margin-top:2rem;">
-                ${item.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
-            </div>
-        `;
-    } else {
-        document.body.innerHTML = "<div style='padding:2rem;'><h1>Not Found</h1><a href='index.html'>Back</a></div>";
-    }
-}
-
+// 共通ユーティリティ
 function copyPrompt(e, text) {
-    e.stopPropagation();
-    navigator.clipboard.writeText(text).then(() => {
-        alert('Prompt copied to clipboard!');
-    });
+    if(e) e.stopPropagation();
+    navigator.clipboard.writeText(text).then(() => alert('Prompt Copied!'));
 }
 
 function toggleFav(e, id, btn) {
-    e.stopPropagation();
-    const current = localStorage.getItem(`fav_${id}`) === 'true';
-    localStorage.setItem(`fav_${id}`, !current);
+    if(e) e.stopPropagation();
+    const key = `fav_${id}`;
+    const current = localStorage.getItem(key) === 'true';
+    localStorage.setItem(key, !current);
     btn.classList.toggle('active');
 }
