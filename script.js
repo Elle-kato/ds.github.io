@@ -8,7 +8,7 @@ const designSystems = [
         tags: ["Retro", "Geometric", "Bold"],
         theme: "theme-retro-modern", // style.cssで定義したクラス名
         // 画像はプレースホルダーにしていますが、'images/filename.png' に書き換えてください
-        image: "https://placehold.co/800x450/F4F1EA/D65A31?text=Retro+Modern", 
+        image: "Retro Modern Revival.png", 
         description: "アナログの温かみとデジタルな幾何学を融合させた「洗練された反逆者」。焦がし橙（Burnt Orange）の大胆なアクセントと、数学的に純粋な形状が特徴。",
         prompt: "High-end editorial fashion photography, 16:9 aspect ratio, mid-century modern aesthetic, a model with sharp features and geometric bob hair, wearing structured velvet tailoring in burnt orange and deep teal, standing in a minimalist concrete architectural space with a single vintage wooden chair, harsh sunlight casting deep cinematic shadows, film grain texture, cream-toned highlights, nostalgic yet sophisticated vibe, shot on 35mm lens --ar 16:9 --v 6.0 --style raw"
     },
